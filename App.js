@@ -71,29 +71,7 @@ export default function App() {
       <TouchableOpacity
         style={styles.buttonCss}
          onPress={() => {
-          var options = {
-            description: 'Credits towards consultation',
-            image: 'https://i.imgur.com/3g7nmJC.jpg',
-            currency: 'INR',
-            key: RAZORPAY_KEY_ID,
-            amount: '5000',
-            name: 'Acme Corp',
-            order_id: 'order_DslnoIgkIDL8Zt1',//Replace this with an order_id created using Orders API.
-            prefill: {
-              email: 'gaurav.kumar@example.com',
-              contact: '9191919191',
-              name: 'Gaurav Kumar'
-            },
-            theme: {color: '#53a20e'}
-          }
-          RazorpayCheckout.open(options).then((data) => {
-            // handle success
-            alert(`Success: ${data.razorpay_payment_id}`);
-          }).catch((error) => {
-            console.log(error);
-            // handle failure
-            alert(`Error: ${error.code} | ${error.description}`);
-          });
+          startPayment();
         }}
       >
          <Text style={styles.title}>Start Payment</Text>
