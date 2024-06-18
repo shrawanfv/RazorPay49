@@ -29,11 +29,47 @@ export default function App() {
     });
   };
 
+  const styles = {
+    container: {
+      flex: 1,
+      // backgroundColor: "#000",
+      // alignItems: "center",
+      justifyContent: "center",
+      // padding: 12,
+      margin: 4,
+    },
+    scrollView: {
+      // margin: 12,
+      paddingHorizontal: 24,
+      width: "100%",
+    },
+    text: {
+      color: "#fff",
+      // fontWeight: "bold",
+      fontSize: 16,
+    },
+    title: {
+      fontSize: 14,
+      color: "#fff",
+      fontWeight: "500",
+    },
+    buttonCss:{
+      borderColor: "green",
+      borderWidth: 1,
+      borderRadius: 10,
+      margin:10,
+      padding:12,
+      justifyContent: "center",
+      alignSelf: "center",
+      backgroundColor:"green",
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View>
       <TouchableOpacity
-        style={styles.buttonCSS}
+        style={styles.buttonCss}
          onPress={() => {
           var options = {
             description: 'Credits towards consultation',
@@ -60,7 +96,7 @@ export default function App() {
           });
         }}
       >
-         <Text>Start Payment</Text>
+         <Text style={styles.title}>Start Payment</Text>
       </TouchableOpacity>
       </View>
       <StatusBar style="auto" />
@@ -68,15 +104,4 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }, buttonCSS: {
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
