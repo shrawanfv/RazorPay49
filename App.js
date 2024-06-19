@@ -2,17 +2,18 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native';
 import { RAZORPAY_KEY_ID,RAZORPAY_KEY_SECRET } from "@env";
 import RazorpayCheckout from 'react-native-razorpay';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function App() {
   const startPayment = async () => {
-    var options = {
+    const options = {
       description: 'Payment Test',
       image: 'https://i.imgur.com/3g7nmJC.jpg',
       currency: 'INR',
       key: RAZORPAY_KEY_ID,
       amount: '1000',
       name: 'Acme Corp',
-      order_id: 'order_DslnoIgkIDL8Zt',//Replace this with an order_id created using Orders API.
+      order_id: 'order_'+uuidv4(),//Replace this with an order_id created using Orders API.
       prefill: {
         email: 'shrawan@filevile.com',
         contact: '9167186662',
@@ -20,6 +21,8 @@ export default function App() {
       },
       theme: {color: '#53a20e'}
     }
+    console.log(options);
+   // console.log(RazorpayCheckout.onExternalWalletSelection);
    RazorpayCheckout.open(options).then((data) => {
       // handle success
       alert(`Success: ${data.razorpay_payment_id}`);
