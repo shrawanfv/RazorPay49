@@ -27,6 +27,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2cffb537-d3c3-4a47-8e50-b1d0190c7811"
+      }
+    },
+    "owner": "rajeai"
   }
 }
